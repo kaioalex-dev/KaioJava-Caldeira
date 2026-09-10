@@ -55,19 +55,19 @@ public class Picareta {
         return "Picareta: " + " Material: " + material + ", Durabilidade: " + durabilidade + ", Força: " + forca;
     }
 
-    public void minerar(Picareta p, int blocos) {
-        System.out.println("\n=== MINERANDO COM PICARETA DE " + p.getMaterial().toUpperCase() + " ===");
-        System.out.println("Durabilidade atual: " + p.getDurabilidade());
-        System.out.println("Força: " + p.getForca());
+    public void minerar(int blocos) {
+        System.out.println("\n=== MINERANDO COM PICARETA DE " + material.toUpperCase() + " ===");
+        System.out.println("Durabilidade atual: " + durabilidade);
+        System.out.println("Força: " + forca);
         System.out.println("Blocos a minerar: " + blocos);
 
-        if (p.getDurabilidade() <= 0) {
+        if (durabilidade <= 0) {
             System.out.println("Picareta quebrada!");
             return;
         }
 
         int blocosMinerados = 0;
-        int durabilidadeRestante = p.getDurabilidade();
+        int durabilidadeRestante = durabilidade;
 
         for (int i = 0; i < blocos; i++) {
             if (durabilidadeRestante <= 0) {
@@ -79,44 +79,42 @@ public class Picareta {
         }
         System.out.println("\nMinerados " + blocosMinerados + " blocos");
         System.out.println("Durabilidade restante: " + durabilidadeRestante);
-        p.setDurabilidade(durabilidadeRestante);
+        setDurabilidade(durabilidadeRestante);
     }
 
-    public void repararPicareta(Picareta p, int quantidade) {
+    public static int limiteMaximoDurabilidade(String material) {
+        switch (material.toLowerCase()) {
+            case "madeira":
+                return 50;
+            case "pedra":
+                return 70;
+            case "ferro":
+                return 100;
+            case "ouro":
+                return 30;
+            default:
+                return 60;
+        }
+    }
+
+    public void repararPicareta(int quantidade) {
 
         if (quantidade <= 0) {
             throw new IllegalArgumentException("Quantidade negativa ou 0 é inválida!");
         }
 
-        System.out.println("\n=== REPARANDO PICARETA DE " + p.getMaterial().toUpperCase() + " ===");
-        System.out.println("Durabilidade atual: " + p.getDurabilidade());
+        System.out.println("\n=== REPARANDO PICARETA DE " + material.toUpperCase() + " ===");
+        System.out.println("Durabilidade atual: " + durabilidade);
         System.out.println("Quantidade a reparar: " + quantidade);
 
-        int durabilidadeNova = p.getDurabilidade() + quantidade;
-        int limiteMaximo = 0;
-
-        switch (p.getMaterial().toLowerCase()) {
-            case "madeira":
-                limiteMaximo = 50;
-                break;
-            case "pedra":
-                limiteMaximo = 70;
-                break;
-            case "ferro":
-                limiteMaximo = 100;
-                break;
-            case "ouro":
-                limiteMaximo = 30;
-                break;
-            default:
-                limiteMaximo = 60;
-        }
+        int durabilidadeNova = durabilidade + quantidade;
+        int limiteMaximo = limiteMaximoDurabilidade(material);
 
         if (durabilidadeNova > limiteMaximo) {
             durabilidadeNova = durabilidadeNova - (durabilidadeNova - limiteMaximo);
         }
 
         System.out.println("Durabilidade nova: " + durabilidadeNova);
-        p.setDurabilidade(durabilidadeNova);
+        setDurabilidade(durabilidadeNova);
     }
 }

@@ -16,11 +16,11 @@ public class oldSteve {
         System.out.println("• " + picareta_2);
         System.out.println("• " + picareta_3);
 
-        picareta_3.minerar(picareta_3, 30);
-        picareta_3.minerar(picareta_3, 20);
+        picareta_3.minerar(30);
+        picareta_3.minerar(20);
 
-        picareta_3.repararPicareta(picareta_3, 265);
-        picareta_4.repararPicareta(picareta_4, 100);
+        picareta_3.repararPicareta(265);
+        picareta_4.repararPicareta(100);
 
          System.out.println("\nEstado final das picaretas:");
         System.out.println("• " + picareta_1);
