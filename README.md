@@ -1,2 +1,3 @@
 # Estudos de JAVA com Instituo Caldeira
-Esee repóstiorio servirá para colocar pequenos exercicios e projetos. Utilizarei os arquivos como consulta e documentar minha evolução
+Esee repóstiorio servirá para colocar pequenos exercicios e projetos. Utilizarei os arquivos como consulta e para documentar minha evolução. 
+Os projetos e exercicios estarão voltados em melhorar meus conhecimentos para o back-end com JAVA.
