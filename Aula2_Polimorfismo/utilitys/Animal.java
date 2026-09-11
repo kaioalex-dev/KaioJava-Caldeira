@@ -1,5 +1,6 @@
-package Aula2_Polimorfismo.utilitys;
+package utilitys;
 public interface Animal {
     void emitirSom();
     void coletarProduto();
+    void consultaAnimal();
 }

@@ -1,78 +1,86 @@
-package Aula2_Polimorfismo.entities;
+package entities;
 
-import Aula2_Polimorfismo.utilitys.Animal;
+import utilitys.Animal;
 
-public class VacaMae implements Animal{
+public class VacaMae implements Animal {
     private int id;
-    private String cor;
-    private int patas;
-    private int orelha;
-    private int olhos;
+    private String nome;
+    private String raca;
+    private int idade;
+    private String status;
 
-    VacaMae(int id, String cor, int olhos, int patas, int orelha){
+    public VacaMae(int id, String nome, String raca, int idade, String status) {
         setId(id);
-        setCor(cor);
-        setOrelha(orelha);
-        setPatas(patas);
+        setNome(nome);
+        setRaca(raca);
+        setIdade(idade);
+        setStatus(status);
     }
 
-     public int getId() {
+    public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
-    
-    public String getCor() {
-        return cor;
-    }
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
-    public int getPatas() {
-        return patas;
-    }
-    public void setPatas(int patas) {
-        if(patas < 0 || patas > 4){
-            throw new IllegalArgumentException("Numero invalido de patas");
-        }
-        this.patas = patas;
-    }
-    public int getOrelha() {
-        return orelha;
-    }
-    public void setOrelha(int orelha) {
-        if(orelha < 0 || orelha > 2){
-            throw new IllegalArgumentException("Numero invalido de orelhas");
-        }
 
-        this.orelha = orelha;
-    }   
-
-    public int getOlhos(){
-        return olhos;
+    public String getNome() {
+        return nome;
     }
 
-    public void setOlhos(int olhos){
-        if(olhos < 0 || olhos > 2){
-            throw new IllegalArgumentException("Numero invalido de olhos");
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getRaca() {
+        return raca;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        if (idade < 0) {
+            throw new IllegalArgumentException("Idade tem que ser maior ou igual a 0");
         }
-        this.olhos = olhos;
+        this.idade = idade;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
-    public void emitirSom(){
-        System.out.println("MUUUUUUUUUUU");
+    public void emitirSom() {
+        System.out.print("MUUUUUUUUUUU");
     }
 
     @Override
-    public void coletarProduto(){
-        System.out.println("Retirando leite...");
+    public void coletarProduto() {
+        System.out.printf("%s Retirando leite...\n", nome);
     }
 
-    public String toString(){
-        return "Cor: " + cor + ", Olhos:" + olhos + ", Orelha: "+ orelha + ", Pata: " + patas;
+    @Override
+    public void consultaAnimal() {
+        System.out.printf("[ID: %d] %s (Vaca)%n", id, nome);
+        System.out.printf("- Raça: %s", raca);
+        System.err.printf("\n- Idade: %d ano(s) | Status: %s", idade, status);
+        System.out.printf("\n- Som: ");
+        emitirSom();
+        System.err.println("\n");
     }
 
+    public String toString() {
+        return "ID: " + id + ", Nome: " + nome + ", Raça: " + raca + ", Idade: " + idade + ", Status: " + status;
+    }
 }

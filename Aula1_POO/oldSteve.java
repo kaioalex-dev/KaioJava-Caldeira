@@ -1,4 +1,4 @@
-import Aula1_POO.entities.Picareta;
+import entities.Picareta;
 
 public class oldSteve {
     public static void main(String[] args) {

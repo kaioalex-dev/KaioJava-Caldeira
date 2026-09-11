@@ -2,14 +2,14 @@ package entities;
 
 import utilitys.Animal;
 
-public class GalinhaMae implements Animal {
+public class Ovelha implements Animal {
     private int id;
     private String nome;
     private String raca;
     private int idade;
     private String status;
 
-    public GalinhaMae(int id, String nome, String raca, int idade, String status) {
+    public Ovelha(int id, String nome, String raca, int idade, String status) {
         setId(id);
         setNome(nome);
         setRaca(raca);
@@ -62,17 +62,17 @@ public class GalinhaMae implements Animal {
 
     @Override
     public void emitirSom() {
-        System.out.print("PÓ-PÓ");
+        System.out.print("MÉÉÉÉ");
     }
 
     @Override
     public void coletarProduto() {
-        System.out.printf("%s Colocando ovo....\n", nome);
+        System.out.printf("%s Tirando lã\n", nome);
     }
 
     @Override
     public void consultaAnimal() {
-        System.out.printf("[ID: %d] %s (Galinha)%n", id, nome);
+        System.out.printf("[ID: %d] %s (Ovelha)%n", id, nome);
         System.out.printf("- Raça: %s", raca);
         System.err.printf("\n- Idade: %d ano(s) | Status: %s", idade, status);
         System.out.printf("\n- Som: ");
