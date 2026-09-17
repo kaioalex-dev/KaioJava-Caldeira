@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import entities.*;
+import entities.*;;
 
 public class StardewManager {
     public static void main(String[] args) {
