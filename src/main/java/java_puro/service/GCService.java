@@ -1,5 +1,4 @@
-package service;
-import service.IHelloService;
+package java_puro.service;
 
 public class GCService implements  IHelloService {
 

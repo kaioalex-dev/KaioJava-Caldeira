@@ -1,6 +1,8 @@
-import controller.HelloController;
-import service.GCService;
-import service.IHelloService;
+package java_puro;
+
+import java_puro.controller.HelloController;
+import java_puro.service.GCService;
+import java_puro.service.IHelloService;
 
 public class Main {
     public static void main(String[] args){

@@ -1,6 +1,7 @@
-package controller;
+package spring_xml.controller;
 
-import service.IHelloService;
+import spring_xml.service.GCService;
+import spring_xml.service.IHelloService;
 
 public class HelloController {
 
@@ -12,5 +13,9 @@ public class HelloController {
 
     public void hello(){
         System.out.println(helloService.hello());
+    }
+
+    public GCService getHelloService() {
+        return helloService;
     }
 }
